@@ -2,12 +2,12 @@
 
 self_path=$(realpath "${BASH_SOURCE[0]:-$0}")
 self_dir=$(dirname "$self_path")
-work_dir=${work_dir:-$self_dir/.work}
+llvm_dir=${llvm_dir:-$self_dir/.llvm}
 
 build_type=${build_type:-Release}
-build_dir=${build_dir:-$work_dir/build/$build_type}
-cache_dir=${cache_dir:-$work_dir/cache/$build_type}
-install_dir=${install_dir:-$work_dir/llvm-root/$build_type}
+build_dir=${build_dir:-$llvm_dir/build/$build_type}
+cache_dir=${cache_dir:-$llvm_dir/cache/$build_type}
+install_dir=${install_dir:-$llvm_dir/llvm-root/$build_type}
 
 (cd llvm-project \
 && cmake -S llvm -B "$build_dir" -G Ninja \
